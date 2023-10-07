@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+
+body, html{
+    background-color: #0B0A25;
+    color: white;
+    text-align: center;
+    font-family: "Bitter";
+}
+
+.mode-choice{
+    display: inline;
+}
+
+.music-tile{
+    display: flex;
+    align-items: center;
+    margin-block: 24px;
+}
+
+.music-tile > .info{
+    text-align: start;
+    display: inline;
+    margin: auto;
+}
+
+.music-tile > .info > p:nth-child(1){
+    margin-block: 0;
+}
+
+.music-tile > .info > p:nth-child(2){
+    font-family: "Space Mono";
+    margin-block: 0;
+    font-size: 12px;
+}
+
+.music-tile > .play-btn{
+    display: inline;
+    margin: auto;
+}
