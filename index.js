@@ -176,6 +176,7 @@ function changeSong(){
     var audio = document.getElementById(song.id);
 
     audio.currentTime = 0;
+    $("#correct-hint").text(song.title);
 
     audio.play();
 
@@ -216,4 +217,11 @@ $(".next-song").click(function (){
     audio.currentTime = 0;
 
     changeSong();
+});
+
+$("#song-duration").on("input", function (){
+    const val = $(this).val();
+
+    var audio = document.getElementById(currentSong.id);
+    audio.currentTime = val;
 });
