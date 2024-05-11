@@ -1,46 +1,22 @@
 <!DOCTYPE html>
-<html lang="et">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jazz - Muusika kuulamine</title>
-    <link rel="stylesheet" href="master.css">
-    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <title>Muusika kuulamiskavad</title>
+    <link rel="stylesheet" href="jazz/master.css">
+    <meta http-equiv="refresh" content="0; URL=eesti" />
 </head>
 <body>
-    <!-- Top content -->
     <div>
         <div class="title-container">
-            <h1 class="title">Jazzitöö</h1>
-            <p class="type">Muusika kuulamine</p>
-        </div>
-        <div>
-            <p class="mode-choice practice chosen">Harjuta</p>
-            <p class="mode-choice learn">Õpi</p>
+            <h1 class="title">Muusika kuulamiskavad</h1>
+            <p class="type">Jätkamiseks vali kuulamiskava</p>
         </div>
     </div>
 
-    <br>
-    <!-- Main content -->
-    <div class="audios"></div>
-    <div class="music-tiles practice-screen"></div>
-    <div class="learn-screen" hidden>
-        <h1>Arva teos ära!</h1>
-        <button class="start-test">Alusta</button>
-        <div class="game-screen" hidden>
-            <button class="test-toggle-song">⏸</button><br><br>
-            <button class="next-song">Edasi</button>
-            <p class="correct-answer"></p>
-            <br><br><br>
+    <button onclick="window.location.href = 'jazz';">Jazz</button><br><br>
+    <button onclick="window.location.href = 'eesti';">Eesti muusika</button><br><br>
 
-            <details>
-                <summary>Vaata õiget vastust</summary>
-                <span id="correct-hint">Siin on õige vastus</span>
-            </details>
-
-        </div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
-    <script src="index.js"></script>
 </body>
 </html>
