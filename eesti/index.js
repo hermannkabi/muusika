@@ -1,5 +1,75 @@
 const data = [
     {
+        title:"IV sümfoonia III osa",
+        artist:"G. Mahler",
+        id:"mahler-4",
+    },
+    {
+        title:"Rhapsody in Blue",
+        artist:"G. Gershwin",
+        id: "gershwin",
+    },
+    {
+        title:"Montecchid ja Capulettid ooperist 'Romeo ja Julia'",
+        artist:"S. Prokofjev",
+        id: "prokofjev",
+    },
+    {
+        title:"Bolero",
+        artist:"M. Ravel",
+        id: "ravel",
+    },
+    {
+        title:"Fauni pärastlõuna",
+        artist:"C. Debussy",
+        id: "debussy",
+    },
+    {
+        title:"Oo, Fortuna",
+        artist:"C. Orff",
+        id: "orff",
+    },
+    {
+        title:"Heavy Smoke - City Life 5. osa",
+        artist:"S. Reich",
+        id: "reich",
+    },
+    {
+        title:"Koyaanisqatsi",
+        artist:"P. Glass",
+        id: "koyaanisqatsi",
+    },
+    {
+        title:"Ellujääja Varssavist",
+        artist:"A. Schönberg",
+        id: "schonberg",
+    },
+    {
+        title:"Kontsert prepareeritud klaverile",
+        artist:"J. Cage",
+        id: "cage",
+    },
+    {
+        title:"Kevadpühitsus",
+        artist:"I. Stravinski",
+        id: "stravinski",
+    },
+    {
+        title:"VII sümfoonia I osa",
+        artist:"D. Šostakovitš",
+        id: "sostakovits",
+    },
+    {
+        title:"II klaverikontserdi I osa",
+        artist:"S. Rahmaninov",
+        id: "rahmaninov",
+    },
+    {
+        title:"II klaverikontserdi II osa",
+        artist:"S. Rahmaninov",
+        id: "rahmaninov2",
+    },
+    {
         title:"Sind surmani",
         artist:"A. Kunileid",
         id:"sind-surmani",
