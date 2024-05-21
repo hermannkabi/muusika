@@ -10,7 +10,7 @@ const data = [
         id: "gershwin",
     },
     {
-        title:"Montecchid ja Capulettid ooperist 'Romeo ja Julia'",
+        title:"Montecchid ja Capulettid balletist 'Romeo ja Julia'",
         artist:"S. Prokofjev",
         id: "prokofjev",
     },
