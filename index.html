@@ -5,8 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muusika kuulamiskavad</title>
     <link rel="stylesheet" href="jazz/master.css">
-    <meta http-equiv="refresh" content="0; URL=eesti" />
 </head>
+
+<style>
+    body, html{
+        background-color: white;
+        font-family: "Inter";
+        color: black;
+    }
+
+    .btn-group{
+        width: 50%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: auto;
+        gap: 16px;
+    }
+
+    .course-widget{
+        border: 1px solid black;
+        padding: 16px 8px;
+        transition: background-color 200ms;
+        cursor: pointer;
+    }
+
+    .course-widget > p{
+        margin: 0;
+        margin-top: 16px;
+    }
+
+    .course-widget:hover{
+        background-color: #00000010;
+    }
+
+    @media screen and (max-width: 600px) {
+        .btn-group{
+            width: 100%;
+            grid-template-columns: 1fr;
+        }
+    }
+
+</style>
 <body>
     <div>
         <div class="title-container">
@@ -15,8 +54,17 @@
         </div>
     </div>
 
-    <button onclick="window.location.href = 'jazz';">Jazz</button><br><br>
-    <button onclick="window.location.href = 'eesti';">Eesti muusika</button><br><br>
+    <div class="btn-group">
+        <div class="course-widget" onclick="window.location.href = 'jazz'">
+            <img src="/icons/saxophone.png" alt="">
+            <p>Jazz</p>
+        </div>
+
+        <div class="course-widget" onclick="window.location.href = 'eesti'">
+            <img src="/icons/estonia.png" alt="">
+            <p>Eesti muusika</p>
+        </div>
+    </div>
 
 </body>
 </html>
