@@ -101,6 +101,7 @@ const data = [
 
 
 
+
 for(var i = 0; i<data.length; i++){
     var song = data[i];
 
@@ -116,7 +117,7 @@ for(var i = 0; i<data.length; i++){
 
     $(".audios").append(
      `<audio id="`+song.id+`">
-        <source src="audio/`+song.id+`.mp3" type="audio/mpeg">
+        <source src="../audio/`+song.id+`.mp3" type="audio/mpeg">
         Sinu brauser ei toeta audiot.
     </audio>`
     );
@@ -132,6 +133,7 @@ $(".music-tile").click(function (){
 
     // Paused, play
     if($(this).hasClass("pause")){
+        $(".music-tile:not(.pause)").click();
         $(this).removeClass("pause");
         audioElement.play();
         playSymbol = "pause";
@@ -139,10 +141,19 @@ $(".music-tile").click(function (){
         // Pause playing
         $(this).addClass("pause");
 
-        audioElement.pause();
+        if(audioElement != null) audioElement.pause();
     }
 
     $(this).find(".play-btn > .material-icons").text(playSymbol);
+});
+
+// Start the song from the start on double click
+$(".music-tile").dblclick(function (){
+    const id = $(this).attr("song-id");
+
+    var audioElement = document.getElementById(id);
+
+    audioElement.currentTime = 0;
 });
 
 $(".mode-choice").click(function (){
@@ -169,6 +180,7 @@ function chooseRandomSong(){
 
 
 function changeSong(){
+    $("#correct-hint").hide();
     var song = chooseRandomSong();
 
     currentSong = song;
@@ -176,7 +188,9 @@ function changeSong(){
     var audio = document.getElementById(song.id);
 
     audio.currentTime = 0;
-    $("#correct-hint").text(song.title);
+    $("#correct-name").text(song.title);
+    $("#correct-artist").text(song.artist);
+
 
     audio.play();
 
@@ -211,7 +225,11 @@ $(".test-toggle-song").click(function (){
 });
 
 $(".next-song").click(function (){
-    $(".correct-answer").text("Õige vastus oli "+currentSong.title);
+    $(".correct-answer").text("Õige vastus oli ");
+
+    $("#correct-was-name").text(currentSong.title);
+    $("#correct-was-artist").text(currentSong.artist);
+
     var audio = document.getElementById(currentSong.id);
     audio.pause();
     audio.currentTime = 0;
@@ -224,4 +242,8 @@ $("#song-duration").on("input", function (){
 
     var audio = document.getElementById(currentSong.id);
     audio.currentTime = val;
+});
+
+$("#view-correct").click(function (){
+    $("#correct-hint").fadeToggle(200);
 });

@@ -6,15 +6,17 @@
     <title>Jazz - Muusika kuulamine</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="master.css">
-    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../icons/saxophone.png" type="image/x-icon">
 </head>
 <body>
     <!-- Top content -->
     <div>
-        <div class="title-container">
-            <h1 class="title">Jazzitöö</h1>
-            <p class="type">Muusika kuulamine</p>
-        </div>
+        <a href="../" style="all: unset; cursor: pointer;">
+            <div class="title-container">
+                <h1 class="title">Jazzitöö</h1>
+                <p class="type">Muusika kuulamine</p>
+            </div>
+        </a>
         <div>
             <p class="mode-choice practice chosen">Harjuta</p>
             <p class="mode-choice learn">Õpi</p>
@@ -31,13 +33,26 @@
         <div class="game-screen" hidden>
             <button class="test-toggle-song"><i class="material-icons">pause</i></button><br><br>
             <button class="next-song">Edasi</button>
-            <p class="correct-answer"></p>
-            <br><br><br>
+            <br><br>
+            <p class="correct-answer" style="color: grey;"></p>
+            <div class="music-tile" style="display: block; pointer-events: none;">
+                <div class="info" style="text-align: center;">
+                    <p id="correct-was-name"></p>
+                    <p id="correct-was-artist"></p>
+                </div>
+            </div>
 
-            <details>
-                <summary>Vaata õiget vastust</summary>
-                <span id="correct-hint">Siin on õige vastus</span>
-            </details>
+            <br><br>
+
+            <div>
+                <p id="view-correct" style="color: grey; cursor: pointer;">Vaata õiget vastust</p>
+                <div hidden class="music-tile" style="display: block; pointer-events: none;">
+                    <div class="info" style="text-align: center; display: none;" id="correct-hint" hidden>
+                        <p id="correct-name">Loo nimi</p>
+                        <p id="correct-artist">Autori nimi</p>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>

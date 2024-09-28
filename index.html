@@ -38,6 +38,13 @@
         background-color: #00000010;
     }
 
+    @media screen and (min-width: 600px) {
+        .course-widget:nth-child(odd):last-child{
+            grid-column: auto / span 2;
+        }
+    }
+
+
     @media screen and (max-width: 600px) {
         .btn-group{
             width: 100%;
@@ -53,8 +60,25 @@
             <p class="type">Jätkamiseks vali kuulamiskava</p>
         </div>
     </div>
-
+    
     <div class="btn-group">
+        <div class="course-widget" onclick="window.location.href = 'barokk'">
+            <img src="/icons/organ.png" alt="">
+            <p>Barokk</p>
+        </div>
+        <div class="course-widget" onclick="window.location.href = 'klassitsism'">
+            <img src="/icons/people.png" alt="">
+            <p>Klassitsism</p>
+        </div>
+        <div class="course-widget" onclick="window.location.href = 'barokk-klassitsism'">
+            <div style="display: flex; gap: 6px; align-items: center; flex-direction: row; justify-content: center;">
+                <img src="/icons/organ.png" alt="">
+                +
+                <img src="/icons/people.png" alt="">
+            </div>
+            <p>Barokk ja klassitsism</p>
+        </div>
+
         <div class="course-widget" onclick="window.location.href = 'jazz'">
             <img src="/icons/saxophone.png" alt="">
             <p>Jazz</p>
@@ -63,6 +87,20 @@
         <div class="course-widget" onclick="window.location.href = 'eesti'">
             <img src="/icons/estonia.png" alt="">
             <p>Eesti muusika</p>
+        </div>
+
+        <div class="course-widget" onclick="window.location.href = 'xx-sajand'">
+            <img src="/icons/xx.png" alt="">
+            <p>20. sajandi muusika</p>
+        </div>
+
+        <div class="course-widget" onclick="window.location.href = 'eesti-ja-xx'">
+            <div style="display: flex; gap: 6px; align-items: center; flex-direction: row; justify-content: center;">
+                <img src="/icons/estonia.png" alt="">
+                +
+                <img src="/icons/xx.png" alt="">
+            </div>
+            <p>Eesti ja XX sajandi muusika</p>
         </div>
     </div>
 
