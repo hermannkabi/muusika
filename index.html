@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muusika kuulamiskavad</title>
     <link rel="stylesheet" href="jazz/master.css">
+    <link rel="shortcut icon" href="icons/logo.png" type="image/x-icon">
 </head>
 
 <style>
@@ -62,21 +63,50 @@
     </div>
     
     <div class="btn-group">
+
         <div class="course-widget" onclick="window.location.href = 'barokk'">
-            <img src="/icons/organ.png" alt="">
+            <img src="icons/organ.png" alt="">
             <p>Barokk</p>
         </div>
+
         <div class="course-widget" onclick="window.location.href = 'klassitsism'">
-            <img src="/icons/people.png" alt="">
+            <img src="icons/people.png" alt="">
             <p>Klassitsism</p>
         </div>
+
         <div class="course-widget" onclick="window.location.href = 'barokk-klassitsism'">
             <div style="display: flex; gap: 6px; align-items: center; flex-direction: row; justify-content: center;">
-                <img src="/icons/organ.png" alt="">
+                <img src="icons/organ.png" alt="">
                 +
-                <img src="/icons/people.png" alt="">
+                <img src="icons/people.png" alt="">
             </div>
             <p>Barokk ja klassitsism</p>
+        </div>
+
+        <div class="course-widget" onclick="window.location.href = 'ii-klaver'">
+            <img src="icons/piano.png" alt="">
+            <p>II kursuse klaveriteosed</p>
+        </div>
+
+        <div class="course-widget" onclick="window.location.href = 'ii-symfoonia'">
+            <img src="icons/conductor.png" alt="">
+            <p>II kursuse sümfooniateosed</p>
+        </div>
+
+        <div class="course-widget" onclick="window.location.href = 'ii-vokaal'">
+            <img src="icons/opera.png" alt="">
+            <p>II kursuse vokaalteosed</p>
+        </div>
+
+        <div class="course-widget" onclick="window.location.href = 'ii-kursus'">
+            <div style="display: flex; gap: 6px; align-items: center; flex-direction: row; justify-content: center;">
+                <img src="icons/piano.png" alt="">
+                +
+                <img src="icons/conductor.png" alt="">
+                +
+                <img src="icons/opera.png" alt="">
+            </div>
+            <p>II kursus</p>
         </div>
 
         <div class="course-widget" onclick="window.location.href = 'jazz'">
@@ -90,17 +120,22 @@
         </div>
 
         <div class="course-widget" onclick="window.location.href = 'xx-sajand'">
-            <img src="/icons/xx.png" alt="">
+            <img src="icons/xx.png" alt="">
             <p>20. sajandi muusika</p>
         </div>
 
         <div class="course-widget" onclick="window.location.href = 'eesti-ja-xx'">
             <div style="display: flex; gap: 6px; align-items: center; flex-direction: row; justify-content: center;">
-                <img src="/icons/estonia.png" alt="">
+                <img src="icons/estonia.png" alt="">
                 +
-                <img src="/icons/xx.png" alt="">
+                <img src="icons/xx.png" alt="">
             </div>
             <p>Eesti ja XX sajandi muusika</p>
+        </div>
+
+        <div style="border-width: 2px; font-weight: bold;" class="course-widget" onclick="window.location.href = 'kogu-muusika'">
+            <img src="icons/music-note.png" alt="">
+            <p>Kõik teosed</p>
         </div>
     </div>
 
