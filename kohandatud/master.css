@@ -4,11 +4,16 @@
     .music-tiles{
         width: calc(100%  - 32px) !important;
     }
+
+    .wrapper{
+        width: calc(100% - 60px) !important;
+        margin-left: 48px;
+    }
 }
 
 :root{
-    --background-color: rgb(32, 32, 32); 
-    --text-color: rgb(212, 212, 212); 
+    --background-color: rgb(247, 229, 229); 
+    --text-color: rgb(24, 5, 5); 
     --button-color: rgb(56, 56, 56);
     --button-text-color: white;
     --primary-font: "Sora";
@@ -95,19 +100,19 @@ button:hover{
     font-size: 20px;
 }
 
-.music-tile > .info{
+.music-tile .info{
     text-align: start;
     display: inline;
     user-select: none;
 }
 
 /* Loo nimi */
-.music-tile > .info > p:nth-child(1){
+.music-tile .info > p:nth-child(1){
     margin-block: 0;
 }
 
 /* Autori nimi */
-.music-tile > .info > p:nth-child(2){
+.music-tile .info > p:nth-child(2){
     font-family: var(--secondary-font);
     margin-block: 0;
     margin-top: 6px;
@@ -122,4 +127,27 @@ button:hover{
 .music-tile:not(.pause) > .info > p:nth-child(1){
     color: var(--button-color);
     font-weight: bold;
+}
+
+
+input[type='checkbox']{
+    scale: 1.5;
+    accent-color: var(--text-color);
+    position: absolute;
+    top: 50%;
+    left: -46px;
+    transform: translateY(-50%);
+}
+
+.scroll-down{
+    height: 50px;
+    border-radius: 50px;
+    font-size: 18px;
+}
+
+input{
+    font-size: 18px;
+    padding: 16px;
+    border-radius: 0;
+    border: 1px solid black;
 }

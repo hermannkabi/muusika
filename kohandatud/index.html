@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kogu muusika - Muusika kuulamine</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="master.css">
+    <link rel="shortcut icon" href="../icons/logo.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Top content -->
+    <div>
+        <a style="all: unset; cursor: pointer;" href="../">
+            <div class="title-container">
+                <h1 class="title">Kogu muusika</h1>
+                <p class="type">Muusika kuulamiskava</p>
+            </div>
+        </a>
+
+        <div class="playlist-info" style="display: inline-flex; flex-direction: row; gap: 16px; justify-content: center; align-items: center;padding: 16px 8px; margin: 16px;">
+            <img src="../icons/info.png" alt="">
+            <p>Vali muusikateosed, mida soovid kuulamiskavasse</p>
+        </div>
+
+        <div>
+            <p class="mode-choice practice chosen">Harjuta</p>
+            <p class="mode-choice learn">Testi end</p>
+        </div>
+    </div>
+
+    <br>
+    <!-- Main content -->
+    <div class="audios"></div>
+    <div class="practice-screen">
+        <div class="music-tiles"></div>
+
+        <button style="position:fixed; bottom: 16px; left: 50%;transform: translateX(-50%);" class="scroll-down" onclick="window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: 'smooth' })" hidden>Valmis?</button>
+
+        <div class="create-playlist-container">
+            <br><br>
+            <input class="playlist-name" style="text-align: center;" type="text" placeholder="Anna kuulamiskavale nimi"><br><br>
+            <button class="create-playlist">Loo kuulamiskava</button>
+<br><br>
+            <input class="url-copy" type="text" name="" id="" readonly placeholder="Genereeritud URL ilmub siia...">
+        </div>
+    </div>
+    <div class="learn-screen" hidden>
+        <h1>Arva teos ära!</h1>
+        <button class="start-test">Alusta</button>
+        <div class="game-screen" hidden>
+            <button class="test-toggle-song"><i class="material-icons">pause</i></button><br><br>
+            <button class="next-song">Edasi</button>
+            <br><br>
+            <p class="correct-answer" style="color: grey;"></p>
+            <div class="music-tile" style="display: block; pointer-events: none;">
+                <div class="info" style="text-align: center;">
+                    <p id="correct-was-name"></p>
+                    <p id="correct-was-artist"></p>
+                </div>
+            </div>
+
+            <br><br>
+
+            <div>
+                <p id="view-correct" style="color: grey; cursor: pointer;">Vaata õiget vastust</p>
+                <div hidden class="music-tile" style="display: block; pointer-events: none;">
+                    <div class="info" style="text-align: center; display: none;" id="correct-hint" hidden>
+                        <p id="correct-name">Loo nimi</p>
+                        <p id="correct-artist">Autori nimi</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+    <script src="index.js"></script>
+
+    <script>
+        $("input[type='checkbox']").change(function (){
+            var checked = $("input[type='checkbox']:checked").length;
+
+            if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+                $('.scroll-down').fadeOut(200);
+            } else {
+                if(checked > 0){
+                    $(".scroll-down").fadeIn(200);
+                }else{
+                    $(".scroll-down").fadeOut(200);
+                }
+            }
+        });
+
+        $(window).on("scroll", function (){
+            var checked = $("input[type='checkbox']:checked").length;
+
+            if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+                $('.scroll-down').fadeOut(200);
+            } else {
+                if(checked > 0){
+                    $(".scroll-down").fadeIn(200);
+                }else{
+                    $(".scroll-down").fadeOut(200);
+                }
+            }
+        })
+    </script>
+
+    <script>
+        $(".create-playlist").click(function (){
+            var checked = $("input[type='checkbox']:checked");
+            var name = $(".playlist-name").val();
+
+            if(checked.length <= 0){
+                alert("Palun vali laulud, mida soovid kuulamiskavasse lisada");
+            }else if(name.length <= 0){
+                alert("Palun anna kuulamiskavale nimi");
+            }else{
+                var dataString = name;
+
+                checked.each(function (){
+                    dataString+=(";"+$(this).attr("song-uid"));
+                });
+
+                var value=btoa(dataString).replace(/-/g, '+').replace(/_/g, '/');        
+
+                $(".url-copy").val("https://hermannkabi.com/muusika/kohandatud?c="+value);
+            }
+            
+        });
+    </script>
+
+    <script>
+        let lastChecked = null;
+
+        $('input[type="checkbox"]').on('click', function (e) {
+        if (lastChecked && e.shiftKey) {
+            const checkboxes = $('input[type="checkbox"]');
+            const start = checkboxes.index(this);
+            const end = checkboxes.index(lastChecked);
+
+            // Determine the range
+            const range = [start, end].sort((a, b) => a - b);
+
+            // Check/uncheck all in the range
+            checkboxes.slice(range[0], range[1] + 1).prop('checked', lastChecked.checked);
+        }
+
+        // Update the last checked
+        lastChecked = this;
+        });
+    </script>
+</body>
+</html>
