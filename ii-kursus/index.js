@@ -20,7 +20,7 @@ const data = [
         id:"chopin4",
     },
     {
-        title:"Nokturn \"Armuunelmad\"",
+        title:"Nokturn „Armuunelmad“",
         artist:"F. Liszt",
         id:"liszt1",
     },
@@ -30,7 +30,7 @@ const data = [
         id:"liszt2",
     },
     {
-        title:"Etüüd Metsik jaht kogumikust Transendentsed etüüdid klaverile",
+        title:"Etüüd Metsik jaht kogumikust „Transendentsed etüüdid klaverile“",
         artist:"F. Liszt",
         id:"liszt3",
     },
@@ -40,47 +40,47 @@ const data = [
         id:"grieg1",
     },
     {
-        title:"\"Klaverikontsert\" 1. osa",
+        title:"Klaverikontsert 1. osa",
         artist:"E.Grieg",
         id:"grieg2",
     },
     {
-        title:"Intermezzo ooperist \"Talupoja au\"",
+        title:"Intermezzo ooperist „Talupoja au“",
         artist:"P. Mascagni",
         id:"mascagni",
     },
     {
-        title:"\"Lõpetamata sümfoonia\" 1. osa",
+        title:"„Lõpetamata sümfoonia“ 1. osa",
         artist:"F. Schubert",
         id:"schubert1",
     },
     {
-        title:"sümfooniline poeem \"Finlandia\"",
+        title:"sümfooniline poeem „Finlandia“",
         artist:"J. Sibelius",
         id:"sibelius1",
     },
     {
-        title:"\"6. sümfoonia\" 1. osa",
+        title:"6. sümfoonia 1. osa",
         artist:"P. Tšaikovski",
         id:"tsaikovski1",
     },
     {
-        title:"\"1. klaverikontsert\" 1. osa",
+        title:"1. klaverikontsert 1. osa",
         artist:"P. Tšaikovski",
         id:"tsaikovski2",
     },
     {
-        title:"\"Lillede valss\" balletist \"Pähklipureja\"",
+        title:"„Lillede valss“ balletist „Pähklipureja“",
         artist:"P. Tšaikovski",
         id:"tsaikovski3",
     },
     {
-        title:"Avamäng ooperile Tannhäuser",
+        title:"Avamäng ooperile „Tannhäuser“",
         artist:"R. Wagner",
         id:"wagner",
     },
     {
-        title:"Sümfooniline poeem Prelüüdid",
+        title:"Sümfooniline poeem „Prelüüdid“",
         artist:"F. Liszt",
         id:"liszt4",
     },
@@ -100,37 +100,37 @@ const data = [
         id:"brahms2",
     },
     {
-        title:"Soololaul \"Metshaldjas\"",
+        title:"Soololaul „Metshaldjas“",
         artist:"F. Schubert",
         id:"schubert2",
     },
     {
-        title:"Kroonimisstseen ooperist \"Boris Godunov\"",
+        title:"Kroonimisstseen ooperist „Boris Godunov“",
         artist:"M. Mussorgski",
         id:"mussorgski",
     },
     {
-        title:"Habanera ooperist \"Carmen\"",
+        title:"Habanera ooperist „Carmen“",
         artist:"G. Bizet",
         id:"bizet1",
     },
     {
-        title:"Don Jose aaria ooperist Carmen ",
+        title:"Don Jose aaria ooperist „Carmen“",
         artist:"G. Bizet",
         id:"bizet2",
     },
     {
-        title:"Hertsogi lauluke ooperist \"Rigoletto\"",
+        title:"Hertsogi lauluke ooperist „Rigoletto“",
         artist:"G. Verdi",
         id:"verdi1",
     },
     {
-        title:"Joogilaul ooperist \"Traviata\"",
+        title:"Joogilaul ooperist „Traviata“",
         artist:"G. Verdi",
         id:"verdi2",
     },
     {
-        title:"Orjade koor ooperist \"Nabucco\"",
+        title:"Orjade koor ooperist „Nabucco“",
         artist:"G. Verdi",
         id:"verdi3",
     },
@@ -211,11 +211,34 @@ $(".mode-choice").click(function (){
 
 
 
-var currentSong;
-
-function chooseRandomSong(){
-    return data[Math.floor(Math.random()*data.length)];
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[i]];
+    }
+    return shuffled;
 }
+  
+var currentSong;
+  
+var testOrder = shuffleArray(data);
+  
+function chooseRandomSong(){
+    if(!currentSong){
+    return testOrder[0];
+    }
+    
+    var currentIndex = testOrder.indexOf(currentSong);
+
+    if(testOrder.length <= currentIndex + 1){
+    testOrder = shuffleArray(data);
+    return testOrder[0];
+    }
+
+    return testOrder[currentIndex + 1];
+}
+
 
 
 function changeSong(){

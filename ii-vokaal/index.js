@@ -1,36 +1,36 @@
 const data = [
     {
-        title:"Soololaul \"Metshaldjas\"",
+        title:"Soololaul „Metshaldjas“",
         artist:"F. Schubert",
         id:"schubert2",
     },
     {
-        title:"Kroonimisstseen ooperist \"Boris Godunov\"",
+        title:"Kroonimisstseen ooperist „Boris Godunov“",
         artist:"M. Mussorgski",
         id:"mussorgski",
     },
     {
-        title:"Habanera ooperist \"Carmen\"",
+        title:"Habanera ooperist „Carmen“",
         artist:"G. Bizet",
         id:"bizet1",
     },
     {
-        title:"Don Jose aaria ooperist Carmen ",
+        title:"Don Jose aaria ooperist „Carmen“",
         artist:"G. Bizet",
         id:"bizet2",
     },
     {
-        title:"Hertsogi lauluke ooperist \"Rigoletto\"",
+        title:"Hertsogi lauluke ooperist „Rigoletto“",
         artist:"G. Verdi",
         id:"verdi1",
     },
     {
-        title:"Joogilaul ooperist \"Traviata\"",
+        title:"Joogilaul ooperist „Traviata“",
         artist:"G. Verdi",
         id:"verdi2",
     },
     {
-        title:"Orjade koor ooperist \"Nabucco\"",
+        title:"Orjade koor ooperist „Nabucco“",
         artist:"G. Verdi",
         id:"verdi3",
     },
@@ -111,10 +111,32 @@ $(".mode-choice").click(function (){
 
 
 
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[i]];
+    }
+    return shuffled;
+}
+  
 var currentSong;
-
+  
+var testOrder = shuffleArray(data);
+  
 function chooseRandomSong(){
-    return data[Math.floor(Math.random()*data.length)];
+    if(!currentSong){
+    return testOrder[0];
+    }
+    
+    var currentIndex = testOrder.indexOf(currentSong);
+
+    if(testOrder.length <= currentIndex + 1){
+    testOrder = shuffleArray(data);
+    return testOrder[0];
+    }
+
+    return testOrder[currentIndex + 1];
 }
 
 

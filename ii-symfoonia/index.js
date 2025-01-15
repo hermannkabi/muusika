@@ -5,47 +5,47 @@ const data = [
         id:"grieg1",
     },
     {
-        title:"\"Klaverikontsert\" 1. osa",
+        title:"„Klaverikontsert“ 1. osa",
         artist:"E.Grieg",
         id:"grieg2",
     },
     {
-        title:"Intermezzo ooperist \"Talupoja au\"",
+        title:"Intermezzo ooperist „Talupoja au“",
         artist:"P. Mascagni",
         id:"mascagni",
     },
     {
-        title:"\"Lõpetamata sümfoonia\" 1. osa",
+        title:"„Lõpetamata sümfoonia“ 1. osa",
         artist:"F. Schubert",
         id:"schubert1",
     },
     {
-        title:"sümfooniline poeem \"Finlandia\"",
+        title:"sümfooniline poeem „Finlandia“",
         artist:"J. Sibelius",
         id:"sibelius1",
     },
     {
-        title:"\"6. sümfoonia\" 1. osa",
+        title:"„6. sümfoonia“ 1. osa",
         artist:"P. Tšaikovski",
         id:"tsaikovski1",
     },
     {
-        title:"\"1. klaverikontsert\" 1. osa",
+        title:"„1. klaverikontsert“ 1. osa",
         artist:"P. Tšaikovski",
         id:"tsaikovski2",
     },
     {
-        title:"\"Lillede valss\" balletist \"Pähklipureja\"",
+        title:"„Lillede valss“ balletist „Pähklipureja“",
         artist:"P. Tšaikovski",
         id:"tsaikovski3",
     },
     {
-        title:"Avamäng ooperile Tannhäuser",
+        title:"Avamäng ooperile „Tannhäuser“",
         artist:"R. Wagner",
         id:"wagner",
     },
     {
-        title:"Sümfooniline poeem Prelüüdid",
+        title:"Sümfooniline poeem „Prelüüdid“",
         artist:"F. Liszt",
         id:"liszt4",
     },
@@ -139,12 +139,32 @@ $(".mode-choice").click(function (){
     }
 });
 
-
-
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[i]];
+    }
+    return shuffled;
+}
+  
 var currentSong;
-
+  
+var testOrder = shuffleArray(data);
+  
 function chooseRandomSong(){
-    return data[Math.floor(Math.random()*data.length)];
+    if(!currentSong){
+    return testOrder[0];
+    }
+    
+    var currentIndex = testOrder.indexOf(currentSong);
+
+    if(testOrder.length <= currentIndex + 1){
+    testOrder = shuffleArray(data);
+    return testOrder[0];
+    }
+
+    return testOrder[currentIndex + 1];
 }
 
 

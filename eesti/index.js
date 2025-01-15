@@ -20,7 +20,7 @@ const data = [
         id:"tuljak",
     },
     {
-        title:"Sanctum - oratooriumist 'Joonase lähetamine'",
+        title:"Sanctum - oratooriumist „Joonase lähetamine“",
         artist:"R. Tobias",
         id:"sanctum",
     },
@@ -70,7 +70,7 @@ const data = [
         id:"universumi-haaled",
     },
     {
-        title:"Sabatants - balletist 'Kratt'",
+        title:"Sabatants - balletist „Kratt“",
         artist:"E. Tubin",
         id:"sabatants",
     },
@@ -175,11 +175,32 @@ $(".mode-choice").click(function (){
 });
 
 
-
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[i]];
+    }
+    return shuffled;
+}
+  
 var currentSong;
-
+  
+var testOrder = shuffleArray(data);
+  
 function chooseRandomSong(){
-    return data[Math.floor(Math.random()*data.length)];
+    if(!currentSong){
+    return testOrder[0];
+    }
+    
+    var currentIndex = testOrder.indexOf(currentSong);
+
+    if(testOrder.length <= currentIndex + 1){
+    testOrder = shuffleArray(data);
+    return testOrder[0];
+    }
+
+    return testOrder[currentIndex + 1];
 }
 
 
