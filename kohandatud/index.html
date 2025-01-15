@@ -34,15 +34,15 @@
     <div class="audios"></div>
     <div class="practice-screen">
         <div class="music-tiles"></div>
+        <p style="color: grey;" id="song-count"></p>
 
         <button style="position:fixed; bottom: 16px; left: 50%;transform: translateX(-50%);" class="scroll-down" onclick="window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: 'smooth' })" hidden>Valmis?</button>
 
         <div class="create-playlist-container">
             <br><br>
             <input class="playlist-name" style="text-align: center;" type="text" placeholder="Anna kuulamiskavale nimi"><br><br>
-            <button class="create-playlist">Loo kuulamiskava</button>
+            <button class="create-playlist" style="height: 50px;border-radius: 50px;font-size: 18px;">Loo kuulamiskava</button>
 <br><br>
-            <input class="url-copy" type="text" name="" id="" readonly placeholder="Genereeritud URL ilmub siia...">
         </div>
     </div>
     <div class="learn-screen" hidden>
@@ -83,7 +83,7 @@
         $("input[type='checkbox']").change(function (){
             var checked = $("input[type='checkbox']:checked").length;
 
-            if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+            if ($(window).scrollTop() + $(window).height() + 100 >= $(document).height()) {
                 $('.scroll-down').fadeOut(200);
             } else {
                 if(checked > 0){
@@ -92,12 +92,16 @@
                     $(".scroll-down").fadeOut(200);
                 }
             }
+
+            var songCount = $("audio").length;
+            $("#song-count").text(songCount.toString() + " laul"+(songCount == 1 ? "" : "u") + (checked > 0 ? " ("+checked+" valitud)" : ""))
+
         });
 
         $(window).on("scroll", function (){
             var checked = $("input[type='checkbox']:checked").length;
 
-            if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+            if ($(window).scrollTop() + $(window).height() + 100 >= $(document).height()) {
                 $('.scroll-down').fadeOut(200);
             } else {
                 if(checked > 0){
@@ -127,7 +131,7 @@
 
                 var value=btoa(dataString).replace(/-/g, '+').replace(/_/g, '/');        
 
-                $(".url-copy").val("https://hermannkabi.com/muusika/kohandatud?c="+value);
+                window.location.href = ("?c="+value);
             }
             
         });

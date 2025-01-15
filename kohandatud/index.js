@@ -700,6 +700,9 @@ for(var i = 0; i<data.length; i++){
     );
 }
 
+var songCount = $("audio").length;
+$("#song-count").text(songCount.toString() + " laul"+(songCount == 1 ? "" : "u"))
+
 $(".music-tile").click(function (){
     const id = $(this).attr("song-id");
 
