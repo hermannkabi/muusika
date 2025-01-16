@@ -78,7 +78,35 @@
 
     <script src="../song-data.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
-    <script src="index.js"></script>
+    <script>
+        var data = [...barokk, ...klassitsism, ...ii_klaver, ...ii_symfoonia, ...ii_vokaal, ...jazz, ...xx_sajand, ...eesti];
+        
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const code = urlParams.get("c");
+
+        if(code){
+            var decodedData;
+            try{
+            decodedData = atob(code.replace(/-/g, '+').replace(/_/g, '/')).split(";")
+            }catch(e){
+            window.location.href = "./";
+            }
+            $(".create-playlist-container").hide();
+            
+            $(".playlist-info").hide();
+
+            $(".title").text(decodedData[0]);
+            $(document).prop('title', decodedData[0] + " - Muusika kuulamiskavad");
+            
+            data = data.filter((e)=>decodedData.slice(1).includes(e.uid));
+        }
+
+        addContent(data, true);
+
+        var songCount = $("audio").length;
+        $("#song-count").text(songCount.toString() + " laul"+(songCount == 1 ? "" : "u"))
+    </script>
 
     <script>
         $("input[type='checkbox']").change(function (){
