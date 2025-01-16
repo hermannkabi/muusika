@@ -1,44 +1,4 @@
-const data = [
-    {
-        title:"Soololaul „Metshaldjas“",
-        artist:"F. Schubert",
-        id:"schubert2",
-    },
-    {
-        title:"Kroonimisstseen ooperist „Boris Godunov“",
-        artist:"M. Mussorgski",
-        id:"mussorgski",
-    },
-    {
-        title:"Habanera ooperist „Carmen“",
-        artist:"G. Bizet",
-        id:"bizet1",
-    },
-    {
-        title:"Don Jose aaria ooperist „Carmen“",
-        artist:"G. Bizet",
-        id:"bizet2",
-    },
-    {
-        title:"Hertsogi lauluke ooperist „Rigoletto“",
-        artist:"G. Verdi",
-        id:"verdi1",
-    },
-    {
-        title:"Joogilaul ooperist „Traviata“",
-        artist:"G. Verdi",
-        id:"verdi2",
-    },
-    {
-        title:"Orjade koor ooperist „Nabucco“",
-        artist:"G. Verdi",
-        id:"verdi3",
-    },
-];
-
-
-
-
+const data = ii_vokaal;
 
 
 for(var i = 0; i<data.length; i++){

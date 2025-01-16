@@ -1,44 +1,4 @@
-const data = [
-    {
-        title:"Polonees A-duur",
-        artist:"F. Chopin",
-        id:"chopin1",
-    },
-    {
-        title:"Etüüd c-moll op.10 nr. 12 (Revolutsiooniline)",
-        artist:"F. Chopin",
-        id:"chopin2",
-    },
-    {
-        title:"Vihmapiiskade prelüüd",
-        artist:"F. Chopin",
-        id:"chopin3",
-    },
-    {
-        title:"Nokturn Es-duur op.9 nr.2",
-        artist:"F. Chopin",
-        id:"chopin4",
-    },
-    {
-        title:"Nokturn „Armuunelmad“",
-        artist:"F. Liszt",
-        id:"liszt1",
-    },
-    {
-        title:"Ungari rapsoodia",
-        artist:"F. Liszt",
-        id:"liszt2",
-    },
-    {
-        title:"Etüüd Metsik jaht kogumikust „Transendentsed etüüdid klaverile“",
-        artist:"F. Liszt",
-        id:"liszt3",
-    },
-];
-
-
-
-
+const data = ii_klaver;
 
 
 for(var i = 0; i<data.length; i++){
